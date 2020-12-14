@@ -19,23 +19,25 @@ public class OrderedArrayList<T extends Comparable<T>> extends NoNullArrayList<T
     if (super.size()==0){
       return 0;
     }
-    if (value.compareTo(super.get(super.size()-1))){
+    if (value.compareTo(super.get(super.size()-1))>=0){
       return super.size();
     }
+    return 0;
   }
   public boolean add(T value){
     super.add(happy(value), value);
     return true;
   }
   public void add(int index, T value){
-    super.add(happy(value, value);
+    super.add(happy(value), value);
   }
-  public void set(int index, T value){
+  public T set(int index, T value){
     T previous = super.get(index);
     if (value!= null){
       super.remove(index);
     }
-    super.add(happy(value), value));
+    super.add(happy(value), value);
+    return previous;
   }
 
 }

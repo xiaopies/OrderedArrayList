@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+import java.util.*;
+import java.io.*;
 public class NoNullArrayList<T> extends ArrayList<T>{
 
   NoNullArrayList(){
@@ -12,7 +13,7 @@ public class NoNullArrayList<T> extends ArrayList<T>{
 
   public void add(int index, T value){
     if (value== null){
-      throw new IndexOutOfBoundsException(value + "is null");
+      throw new IllegalArgumentException (value + "is null");
     }
     else{
       super.add(index, value);
@@ -20,7 +21,7 @@ public class NoNullArrayList<T> extends ArrayList<T>{
   }
   public boolean add(T value){
     if (value==null){
-      throw new IndexOutOfBoundsException(value + "is null");
+      throw new IllegalArgumentException (value + "is null");
     }
     else{
     return super.add(value);
@@ -29,7 +30,7 @@ public class NoNullArrayList<T> extends ArrayList<T>{
 
   public T set(int index, T value){
     if (value==null){
-      throw new IndexOutOfBoundsException(value + "is null");
+      throw new IllegalArgumentException (value + "is null");
     }
     return super.set(index, value);
   }
